@@ -11,30 +11,67 @@ interface Props {
 const { date, title, description, link, images, layout = 'single' } = Astro.props;
 ---
 
-<article class="space-y-4">
-  <time class="text-gray-500 text-sm">{date}</time>
+<article>
+  <time>{date}</time>
 
-  <div class="prose max-w-2xl">
+  <div class="project-content">
     {link ? (
-      <a href={link} target="_blank" rel="noopener noreferrer" class="font-medium hover:underline">
-        {title}
+      <a href={link} target="_blank" rel="noopener noreferrer">
+        <strong>{title}</strong>
       </a>
     ) : (
-      <span class="font-medium">{title}</span>
+      <strong>{title}</strong>
     )}
     <span> — {description}</span>
   </div>
 
-  <div class={layout === 'double' ? 'grid md:grid-cols-2 gap-4' : 'grid grid-cols-1'}>
+  <div class={`images ${layout}`}>
     {images.map((image) => (
-      <img
-        src={image.src}
-        alt={image.alt}
-        loading="lazy"
-        width="800"
-        height="600"
-        class="w-full"
-      />
+      <img src={image.src} alt={image.alt} loading="lazy" width="800" height="600" />
     ))}
   </div>
 </article>
+
+<style>
+  article {
+    margin-bottom: 3rem;
+  }
+
+  time {
+    display: block;
+    color: #6b7280;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+
+  .project-content {
+    margin-bottom: 1.5rem;
+    max-width: 42rem;
+  }
+
+  strong {
+    font-weight: 500;
+  }
+
+  .images {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .images.double {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 768px) {
+    .images.double {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    outline: 1px solid rgba(0, 0, 0, 0.1);
+    outline-offset: -1px;
+  }
+</style>

@@ -1,24 +1,25 @@
 # Portfolio Website
 
-A clean, minimalist portfolio website built with Astro and Tailwind CSS, inspired by modern design aesthetics.
+A clean, minimalist portfolio website built with Astro and custom CSS.
 
 ## Features
 
-- 🎨 Clean, minimalist design with watercolor background effects
-- 🌓 Dark mode support
-- 📱 Fully responsive (mobile, tablet, desktop)
+- 🎨 Clean, minimalist design with vibrant watercolor background
+- 🌓 Manual dark mode toggle
+- 📱 Fully responsive (360px mobile to desktop)
 - ⚡ Lightning-fast performance with Astro
 - 🎯 SEO-friendly
 - 🖼️ Portfolio item components with flexible layouts
 - 📍 Sticky footer with social links
 - 🎭 Custom typography with Momo Trust Display and Anek Latin fonts
+- ✨ **No framework bloat** - Pure semantic HTML and ~260 lines of CSS
 
 ## Tech Stack
 
 - **Astro** - Modern static site generator
-- **Tailwind CSS** - Utility-first CSS framework
+- **Custom CSS** - Clean, maintainable styles (~260 lines total)
 - **TypeScript** - Type-safe development
-- **Fonts** - Momo Trust Display (headings) and Anek Latin (body text)
+- **Google Fonts** - Momo Trust Display (headings) and Anek Latin (body text)
 
 ## Getting Started
 
