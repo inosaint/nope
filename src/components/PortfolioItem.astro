@@ -1,0 +1,54 @@
+---
+interface Props {
+  date: string;
+  title: string;
+  description: string;
+  link?: string;
+  images: { src: string; alt: string }[];
+  layout?: 'single' | 'double';
+}
+
+const { date, title, description, link, images, layout = 'single' } = Astro.props;
+---
+
+<article class="mb-12 my-12">
+  <div class="text-gray-500">{date}</div>
+  <div class="mb-6 mt-6 leading-relaxed xl:mr-60 lg:mr-30 max-w-prose md:mr-20">
+    {link ? (
+      <a
+        class="text-black hover:underline dark:text-white dark:hover:text-gray-300"
+        target="_blank"
+        rel="noopener noreferrer"
+        href={link}
+      >
+        <span class="font-medium">{title}</span>
+      </a>
+    ) : (
+      <span class="font-medium">{title}</span>
+    )}
+    {' — '}
+    <span set:html={description} />
+  </div>
+  <div class="grid grid-cols-12 md:gap-6 gap-2">
+    {images.map((image, index) => (
+      <div
+        class={
+          layout === 'double' && images.length === 2
+            ? index === 0
+              ? 'mb-0 md:mb-6 md:col-span-6 col-span-12'
+              : 'mb-6 md:mb-0 md:col-span-6 col-span-12'
+            : 'mb-6 col-span-12'
+        }
+      >
+        <img
+          alt={image.alt}
+          loading="lazy"
+          width="800"
+          height="600"
+          class="w-full rounded-none mb-0"
+          src={image.src}
+        />
+      </div>
+    ))}
+  </div>
+</article>

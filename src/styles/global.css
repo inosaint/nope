@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;800&family=Inter:wght@400;500;600;700&display=swap');
+
+@layer base {
+  .font-serif {
+    font-family: 'Crimson Pro', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+  }
+
+  .font-serif.font-semibold {
+    font-family: 'Crimson Pro', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+    font-weight: 600;
+  }
+
+  body {
+    color: #000;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  strong {
+    font-weight: 500;
+  }
+
+  a {
+    text-decoration: underline;
+    text-decoration-color: #dcdcdc;
+    color: rgb(0 0 0 / var(--tw-text-opacity, 1));
+    text-decoration-line: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px;
+    position: relative;
+    display: inline-block;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    a {
+      color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+    }
+
+    a:hover {
+      color: rgb(209 213 219 / var(--tw-text-opacity, 1));
+    }
+  }
+
+  a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px;
+  }
+
+  .font-medium {
+    font-family: neue-haas-grotesk-text, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  img {
+    outline: 1px solid rgba(0, 0, 0, 0.1);
+    outline-offset: -1px;
+    border-radius: 0;
+  }
+}
