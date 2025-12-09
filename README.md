@@ -18,7 +18,7 @@ A clean, minimalist portfolio website built with Astro and Tailwind CSS, inspire
 - **Astro** - Modern static site generator
 - **Tailwind CSS** - Utility-first CSS framework
 - **TypeScript** - Type-safe development
-- **Fonts** - Momo (display/headings) and Anek Latin (body text)
+- **Fonts** - Playfair Display (headings) and Anek Latin (body text)
 
 ## Getting Started
 

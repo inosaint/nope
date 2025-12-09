@@ -5,110 +5,104 @@ import '../styles/global.css';
 ---
 
 <BaseLayout title="Your Name">
-  <main class="tracking-tight md:px-2 md:py-1 px-0 py-1 bg-white text-black dark:bg-black dark:text-white min-h-screen flex flex-col pb-24">
+  <main class="min-h-screen pb-24">
+    <div class="max-w-screen-xl mx-auto px-6 py-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
 
-    <div class="bg-white text-lg dark:bg-black dark:text-white flex-1 w-full">
-      <div class="grid grid-cols-12 px-7">
-        <div class="col-span-11 lg:col-span-7 md:col-span-9 max-w-screen-lg pb-5 leading-relaxed">
-          <!-- Hero Section -->
-          <div class="xl:mr-60 lg:mr-30 md:mr-20 max-w-prose">
-            <h1 class="font-serif font-extrabold md:text-8xl text-7xl mt-0 mb-6 text-dark tracking-tight">
-              Your Name
-            </h1>
-            <div class="leading-relaxed">
-              I'm a designer and creative professional passionate about crafting delightful experiences.
-              I love helping teams build products that people genuinely enjoy using. Currently exploring
-              new opportunities and excited about what's next.
+        <!-- Main Content -->
+        <div class="md:col-span-10 lg:col-span-9">
+          <!-- Hero -->
+          <section class="mb-16">
+            <h1 class="text-7xl md:text-8xl font-bold mb-6">Your Name</h1>
+            <div class="max-w-2xl space-y-4 text-lg">
+              <p>
+                I'm a designer and creative professional passionate about crafting delightful experiences.
+                I love helping teams build products that people genuinely enjoy using.
+              </p>
+              <p>
+                In my work, I focus on bringing creativity and thoughtfulness to every project.
+                I believe in the power of good design to make a real difference in people's lives.
+              </p>
             </div>
-            <div class="mt-4 leading-relaxed mb-16">
-              In my work, I focus on bringing creativity and thoughtfulness to every project.
-              I believe in the power of good design to make a real difference in people's lives.
-            </div>
-          </div>
+          </section>
 
-          <!-- Portfolio Items -->
-          <PortfolioItem
-            date="December 2024"
-            title="Latest Project"
-            description="A recent project showcasing innovative design and user experience work. This project pushed boundaries and explored new possibilities in digital design."
-            link="https://example.com"
-            images={[
-              { src: 'https://placehold.co/800x600/e5e7eb/666666?text=Project+Image', alt: 'Latest Project' }
-            ]}
-          />
+          <!-- Portfolio -->
+          <section class="space-y-12">
+            <PortfolioItem
+              date="December 2024"
+              title="Latest Project"
+              description="A recent project showcasing innovative design and user experience work. This project pushed boundaries and explored new possibilities in digital design."
+              link="https://example.com"
+              images={[{ src: 'https://placehold.co/800x600/e5e7eb/666666?text=Project+Image', alt: 'Latest Project' }]}
+            />
 
-          <PortfolioItem
-            date="November 2024"
-            title="Design Workshop"
-            description="Facilitated a workshop on creative problem-solving and design thinking. Helped teams unlock new ways of approaching complex challenges."
-            images={[
-              { src: 'https://placehold.co/800x600/e5e7eb/666666?text=Workshop+1', alt: 'Design Workshop' },
-              { src: 'https://placehold.co/800x600/e5e7eb/666666?text=Workshop+2', alt: 'Design Workshop' }
-            ]}
-            layout="double"
-          />
+            <PortfolioItem
+              date="November 2024"
+              title="Design Workshop"
+              description="Facilitated a workshop on creative problem-solving and design thinking. Helped teams unlock new ways of approaching complex challenges."
+              images={[
+                { src: 'https://placehold.co/800x600/e5e7eb/666666?text=Workshop+1', alt: 'Design Workshop' },
+                { src: 'https://placehold.co/800x600/e5e7eb/666666?text=Workshop+2', alt: 'Design Workshop' }
+              ]}
+              layout="double"
+            />
 
-          <PortfolioItem
-            date="October 2024"
-            title="Product Launch"
-            description="Led the design for a new product launch. Focused on creating an intuitive experience that delights users from their first interaction."
-            link="https://example.com"
-            images={[
-              { src: 'https://placehold.co/800x600/e5e7eb/666666?text=Product+Launch', alt: 'Product Launch' }
-            ]}
-          />
+            <PortfolioItem
+              date="October 2024"
+              title="Product Launch"
+              description="Led the design for a new product launch. Focused on creating an intuitive experience that delights users from their first interaction."
+              link="https://example.com"
+              images={[{ src: 'https://placehold.co/800x600/e5e7eb/666666?text=Product+Launch', alt: 'Product Launch' }]}
+            />
 
-          <PortfolioItem
-            date="September 2024"
-            title="Speaking Engagement"
-            description="Gave a talk about the intersection of creativity and technology. Shared insights on building products with joy and intention."
-            link="https://example.com"
-            images={[
-              { src: 'https://placehold.co/800x600/e5e7eb/666666?text=Speaking+1', alt: 'Speaking Engagement' },
-              { src: 'https://placehold.co/800x600/e5e7eb/666666?text=Speaking+2', alt: 'Speaking Engagement' }
-            ]}
-            layout="double"
-          />
+            <PortfolioItem
+              date="September 2024"
+              title="Speaking Engagement"
+              description="Gave a talk about the intersection of creativity and technology. Shared insights on building products with joy and intention."
+              link="https://example.com"
+              images={[
+                { src: 'https://placehold.co/800x600/e5e7eb/666666?text=Speaking+1', alt: 'Speaking Engagement' },
+                { src: 'https://placehold.co/800x600/e5e7eb/666666?text=Speaking+2', alt: 'Speaking Engagement' }
+              ]}
+              layout="double"
+            />
 
-          <PortfolioItem
-            date="August 2024"
-            title="Community Initiative"
-            description="Started a community initiative to bring together designers and creators. Building spaces for collaboration and shared learning."
-            images={[
-              { src: 'https://placehold.co/800x600/e5e7eb/666666?text=Community', alt: 'Community Initiative' }
-            ]}
-          />
+            <PortfolioItem
+              date="August 2024"
+              title="Community Initiative"
+              description="Started a community initiative to bring together designers and creators. Building spaces for collaboration and shared learning."
+              images={[{ src: 'https://placehold.co/800x600/e5e7eb/666666?text=Community', alt: 'Community Initiative' }]}
+            />
 
-          <PortfolioItem
-            date="July 2024"
-            title="Design System"
-            description="Built a comprehensive design system to improve consistency and efficiency. Created reusable components that scale across platforms."
-            link="https://example.com"
-            images={[
-              { src: 'https://placehold.co/800x600/e5e7eb/666666?text=Design+System', alt: 'Design System' }
-            ]}
-          />
+            <PortfolioItem
+              date="July 2024"
+              title="Design System"
+              description="Built a comprehensive design system to improve consistency and efficiency. Created reusable components that scale across platforms."
+              link="https://example.com"
+              images={[{ src: 'https://placehold.co/800x600/e5e7eb/666666?text=Design+System', alt: 'Design System' }]}
+            />
+          </section>
         </div>
 
-        <!-- Desktop Sidebar -->
-        <div class="hidden md:block md:fixed md:right-8 md:top-2 lg:col-span-2 lg:col-start-11 md:col-span-2 md:col-start-12 col-span-12 pt-4 pb-20 transition-opacity">
-          <div class="text-right md:mt-0 mt-6">
-            <a class="block mb-2 no-underline hover:underline dark:text-white dark:hover:text-gray-300" href="/resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+        <!-- Sidebar -->
+        <aside class="hidden md:block md:col-span-2 lg:col-span-3">
+          <div class="sticky top-8 text-right">
+            <a href="/resume.pdf" class="hover:underline" target="_blank" rel="noopener noreferrer">Resume</a>
           </div>
-        </div>
+        </aside>
       </div>
     </div>
 
-    <!-- Sticky Footer with Social Links -->
-    <footer class="fixed bottom-0 left-0 right-0 bg-white/80 dark:bg-black/80 backdrop-blur-sm border-t border-gray-200 dark:border-gray-800 py-4 px-7 z-50">
-      <nav class="flex flex-row flex-wrap justify-center items-center gap-2">
-        <a class="text-left no-underline text-base dark:text-white inline-block transition hover:underline" target="_blank" rel="noopener noreferrer" href="https://instagram.com">Instagram</a>
-        <span class="mx-1 text-base text-gray-400 dark:text-gray-500">/</span>
-        <a class="text-left no-underline text-base dark:text-white inline-block transition hover:underline" target="_blank" rel="noopener noreferrer" href="https://twitter.com">Twitter</a>
-        <span class="mx-1 text-base text-gray-400 dark:text-gray-500">/</span>
-        <a class="text-left no-underline text-base dark:text-white inline-block transition hover:underline" target="_blank" rel="noopener noreferrer" href="https://linkedin.com">LinkedIn</a>
-        <span class="mx-1 text-base text-gray-400 dark:text-gray-500">/</span>
-        <a class="text-left no-underline text-base dark:text-white inline-block transition hover:underline" target="_blank" rel="noopener noreferrer" href="https://github.com">GitHub</a>
+    <!-- Footer -->
+    <footer class="fixed bottom-0 left-0 right-0 bg-white/80 dark:bg-black/80 backdrop-blur-sm border-t border-gray-200 dark:border-gray-800 py-4">
+      <nav class="flex flex-wrap justify-center gap-2 text-sm">
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:underline">Instagram</a>
+        <span class="text-gray-400">/</span>
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="hover:underline">Twitter</a>
+        <span class="text-gray-400">/</span>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:underline">LinkedIn</a>
+        <span class="text-gray-400">/</span>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hover:underline">GitHub</a>
       </nav>
     </footer>
   </main>

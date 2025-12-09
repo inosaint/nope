@@ -11,44 +11,30 @@ interface Props {
 const { date, title, description, link, images, layout = 'single' } = Astro.props;
 ---
 
-<article class="mb-12 my-12">
-  <div class="text-gray-500">{date}</div>
-  <div class="mb-6 mt-6 leading-relaxed xl:mr-60 lg:mr-30 max-w-prose md:mr-20">
+<article class="space-y-4">
+  <time class="text-gray-500 text-sm">{date}</time>
+
+  <div class="prose max-w-2xl">
     {link ? (
-      <a
-        class="text-black hover:underline dark:text-white dark:hover:text-gray-300"
-        target="_blank"
-        rel="noopener noreferrer"
-        href={link}
-      >
-        <span class="font-medium">{title}</span>
+      <a href={link} target="_blank" rel="noopener noreferrer" class="font-medium hover:underline">
+        {title}
       </a>
     ) : (
       <span class="font-medium">{title}</span>
     )}
-    {' — '}
-    <span set:html={description} />
+    <span> — {description}</span>
   </div>
-  <div class="grid grid-cols-12 md:gap-6 gap-2">
-    {images.map((image, index) => (
-      <div
-        class={
-          layout === 'double' && images.length === 2
-            ? index === 0
-              ? 'mb-0 md:mb-6 md:col-span-6 col-span-12'
-              : 'mb-6 md:mb-0 md:col-span-6 col-span-12'
-            : 'mb-6 col-span-12'
-        }
-      >
-        <img
-          alt={image.alt}
-          loading="lazy"
-          width="800"
-          height="600"
-          class="w-full rounded-none mb-0"
-          src={image.src}
-        />
-      </div>
+
+  <div class={layout === 'double' ? 'grid md:grid-cols-2 gap-4' : 'grid grid-cols-1'}>
+    {images.map((image) => (
+      <img
+        src={image.src}
+        alt={image.alt}
+        loading="lazy"
+        width="800"
+        height="600"
+        class="w-full"
+      />
     ))}
   </div>
 </article>
