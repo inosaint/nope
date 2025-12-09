@@ -11,14 +11,14 @@ A clean, minimalist portfolio website built with Astro and Tailwind CSS, inspire
 - 🎯 SEO-friendly
 - 🖼️ Portfolio item components with flexible layouts
 - 📍 Sticky footer with social links
-- 🎭 Custom typography with Momo and Anek Latin fonts
+- 🎭 Custom typography with Momo Trust Display and Anek Latin fonts
 
 ## Tech Stack
 
 - **Astro** - Modern static site generator
 - **Tailwind CSS** - Utility-first CSS framework
 - **TypeScript** - Type-safe development
-- **Fonts** - Playfair Display (headings) and Anek Latin (body text)
+- **Fonts** - Momo Trust Display (headings) and Anek Latin (body text)
 
 ## Getting Started
 
