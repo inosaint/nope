@@ -4,19 +4,21 @@ A clean, minimalist portfolio website built with Astro and Tailwind CSS, inspire
 
 ## Features
 
-- 🎨 Clean, minimalist design
+- 🎨 Clean, minimalist design with watercolor background effects
 - 🌓 Dark mode support
 - 📱 Fully responsive (mobile, tablet, desktop)
 - ⚡ Lightning-fast performance with Astro
 - 🎯 SEO-friendly
 - 🖼️ Portfolio item components with flexible layouts
+- 📍 Sticky footer with social links
+- 🎭 Custom typography with Momo and Anek Latin fonts
 
 ## Tech Stack
 
 - **Astro** - Modern static site generator
 - **Tailwind CSS** - Utility-first CSS framework
 - **TypeScript** - Type-safe development
-- **Google Fonts** - Crimson Pro (serif) and Inter (sans-serif)
+- **Fonts** - Momo (display/headings) and Anek Latin (body text)
 
 ## Getting Started
 
@@ -81,7 +83,11 @@ Edit `tailwind.config.mjs` to customize the color scheme.
 
 ### Change Fonts
 
-Update the Google Fonts import in `src/styles/global.css` and font families in `tailwind.config.mjs`.
+Update the font imports in `src/styles/global.css` and font families in `tailwind.config.mjs`.
+
+### Customize Social Links
+
+Edit the footer section in `src/pages/index.astro` to update your social media links.
 
 ## Project Structure
 

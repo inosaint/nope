@@ -5,8 +5,8 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				serif: ['Crimson Pro', 'ui-serif', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
-				sans: ['Inter', 'sans-serif'],
+				serif: ['Momo', 'ui-serif', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
+				sans: ['Anek Latin', 'sans-serif'],
 			},
 			letterSpacing: {
 				tight: '-0.025em',

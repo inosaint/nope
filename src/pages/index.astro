@@ -5,14 +5,7 @@ import '../styles/global.css';
 ---
 
 <BaseLayout title="Your Name">
-  <main class="tracking-tight md:px-2 md:py-1 px-0 py-1 bg-white text-black dark:bg-black dark:text-white min-h-screen flex flex-col">
-    <!-- Mobile Navigation -->
-    <div class="md:hidden flex flex-row justify-between items-center px-7 pt-4 pb-2 mb-6">
-      <div class="flex flex-row gap-6">
-        <a class="text-lg no-underline hover:underline dark:text-white dark:hover:text-gray-300" href="/">Work</a>
-        <a class="text-lg no-underline hover:underline dark:text-white dark:hover:text-gray-300" href="/notes">Notes</a>
-      </div>
-    </div>
+  <main class="tracking-tight md:px-2 md:py-1 px-0 py-1 bg-white text-black dark:bg-black dark:text-white min-h-screen flex flex-col pb-24">
 
     <div class="bg-white text-lg dark:bg-black dark:text-white flex-1 w-full">
       <div class="grid grid-cols-12 px-7">
@@ -100,26 +93,23 @@ import '../styles/global.css';
         <!-- Desktop Sidebar -->
         <div class="hidden md:block md:fixed md:right-8 md:top-2 lg:col-span-2 lg:col-start-11 md:col-span-2 md:col-start-12 col-span-12 pt-4 pb-20 transition-opacity">
           <div class="text-right md:mt-0 mt-6">
-            <a class="block mb-2 no-underline hover:underline dark:text-white dark:hover:text-gray-300" href="/">Work</a>
-            <a class="block no-underline hover:underline mb-10 dark:text-white dark:hover:text-gray-300" href="/notes">Notes</a>
-            <a class="block mb-2 no-underline hover:underline dark:text-white dark:hover:text-gray-300" target="_blank" rel="noopener noreferrer" href="https://instagram.com">Instagram</a>
-            <a class="block mb-2 no-underline hover:underline dark:text-white dark:hover:text-gray-300" target="_blank" rel="noopener noreferrer" href="https://twitter.com">Twitter</a>
-            <a class="block mb-2 no-underline hover:underline dark:text-white dark:hover:text-gray-300" target="_blank" rel="noopener noreferrer" href="https://linkedin.com">LinkedIn</a>
-            <a class="block mb-2 no-underline hover:underline dark:text-white dark:hover:text-gray-300" target="_blank" rel="noopener noreferrer" href="https://github.com">GitHub</a>
+            <a class="block mb-2 no-underline hover:underline dark:text-white dark:hover:text-gray-300" href="/resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Mobile Footer -->
-    <nav class="md:hidden flex flex-row px-7 py-2 pb-10 w-full">
-      <a class="text-left no-underline text-lg dark:text-white inline-block transition" target="_blank" rel="noopener noreferrer" href="https://instagram.com">Instagram</a>
-      <span class="mx-1 text-lg text-gray-400 dark:text-gray-500">/</span>
-      <a class="text-left no-underline text-lg dark:text-white inline-block transition" target="_blank" rel="noopener noreferrer" href="https://twitter.com">Twitter</a>
-      <span class="mx-1 text-lg text-gray-400 dark:text-gray-500">/</span>
-      <a class="text-left no-underline text-lg dark:text-white inline-block transition" target="_blank" rel="noopener noreferrer" href="https://linkedin.com">LinkedIn</a>
-      <span class="mx-1 text-lg text-gray-400 dark:text-gray-500">/</span>
-      <a class="text-left no-underline text-lg dark:text-white inline-block transition" target="_blank" rel="noopener noreferrer" href="https://github.com">GitHub</a>
-    </nav>
+    <!-- Sticky Footer with Social Links -->
+    <footer class="fixed bottom-0 left-0 right-0 bg-white/80 dark:bg-black/80 backdrop-blur-sm border-t border-gray-200 dark:border-gray-800 py-4 px-7 z-50">
+      <nav class="flex flex-row flex-wrap justify-center items-center gap-2">
+        <a class="text-left no-underline text-base dark:text-white inline-block transition hover:underline" target="_blank" rel="noopener noreferrer" href="https://instagram.com">Instagram</a>
+        <span class="mx-1 text-base text-gray-400 dark:text-gray-500">/</span>
+        <a class="text-left no-underline text-base dark:text-white inline-block transition hover:underline" target="_blank" rel="noopener noreferrer" href="https://twitter.com">Twitter</a>
+        <span class="mx-1 text-base text-gray-400 dark:text-gray-500">/</span>
+        <a class="text-left no-underline text-base dark:text-white inline-block transition hover:underline" target="_blank" rel="noopener noreferrer" href="https://linkedin.com">LinkedIn</a>
+        <span class="mx-1 text-base text-gray-400 dark:text-gray-500">/</span>
+        <a class="text-left no-underline text-base dark:text-white inline-block transition hover:underline" target="_blank" rel="noopener noreferrer" href="https://github.com">GitHub</a>
+      </nav>
+    </footer>
   </main>
 </BaseLayout>
