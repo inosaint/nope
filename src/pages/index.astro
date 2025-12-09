@@ -6,15 +6,15 @@ import '../styles/global.css';
 
 <BaseLayout title="Your Name">
   <main class="min-h-screen pb-24">
-    <div class="max-w-screen-xl mx-auto px-6 py-8">
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8">
 
         <!-- Main Content -->
         <div class="md:col-span-10 lg:col-span-9">
           <!-- Hero -->
-          <section class="mb-16">
-            <h1 class="text-7xl md:text-8xl font-bold mb-6">Your Name</h1>
-            <div class="max-w-2xl space-y-4 text-lg">
+          <section class="mb-12 sm:mb-16">
+            <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-4 sm:mb-6 leading-tight">Your Name</h1>
+            <div class="max-w-2xl space-y-3 sm:space-y-4 text-base sm:text-lg">
               <p>
                 I'm a designer and creative professional passionate about crafting delightful experiences.
                 I love helping teams build products that people genuinely enjoy using.
@@ -27,7 +27,7 @@ import '../styles/global.css';
           </section>
 
           <!-- Portfolio -->
-          <section class="space-y-12">
+          <section class="space-y-8 sm:space-y-12">
             <PortfolioItem
               date="December 2024"
               title="Latest Project"
@@ -94,10 +94,10 @@ import '../styles/global.css';
     </div>
 
     <!-- Footer -->
-    <footer class="fixed bottom-0 left-0 right-0 bg-white/80 dark:bg-black/80 backdrop-blur-sm border-t border-gray-200 dark:border-gray-800 py-4 px-6">
-      <div class="flex justify-between items-center max-w-screen-xl mx-auto">
+    <footer class="fixed bottom-0 left-0 right-0 bg-white/80 dark:bg-black/80 backdrop-blur-sm border-t border-gray-200 dark:border-gray-800 py-3 sm:py-4 px-3 sm:px-6">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-0 max-w-screen-xl mx-auto">
         <!-- Left: Social Links -->
-        <nav class="flex flex-wrap gap-2 text-sm">
+        <nav class="flex flex-wrap gap-1.5 sm:gap-2 text-xs sm:text-sm">
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:underline">Instagram</a>
           <span class="text-gray-400">/</span>
           <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="hover:underline">Twitter</a>
@@ -108,18 +108,18 @@ import '../styles/global.css';
         </nav>
 
         <!-- Right: Colophon & Theme Toggle -->
-        <div class="flex items-center gap-4">
-          <a href="/colophon" class="text-sm hover:underline">Colophon</a>
+        <div class="flex items-center gap-3 sm:gap-4">
+          <a href="/colophon" class="text-xs sm:text-sm hover:underline">Colophon</a>
           <button
             id="theme-toggle"
             type="button"
-            class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            class="p-1.5 sm:p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
             aria-label="Toggle dark mode"
           >
-            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <svg id="theme-toggle-dark-icon" class="hidden w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
             </svg>
-            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <svg id="theme-toggle-light-icon" class="hidden w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
             </svg>
           </button>
