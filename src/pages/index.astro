@@ -105,14 +105,31 @@ import '../styles/global.css';
 
         <div class="footer-right">
           <a href="/colophon">Colophon</a>
-          <button id="theme-toggle" type="button" aria-label="Toggle dark mode">
-            <svg id="theme-toggle-dark-icon" class="hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-            </svg>
-            <svg id="theme-toggle-light-icon" class="hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
-            </svg>
-          </button>
+          <div class="theme-selector">
+            <button id="theme-toggle" type="button" aria-label="Select theme" aria-expanded="false">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v11a2 2 0 104 0V4a2 2 0 00-2-2zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z" clip-rule="evenodd"></path>
+              </svg>
+            </button>
+            <div id="theme-menu" class="theme-menu hidden">
+              <button data-theme="default" class="theme-option active">
+                <span class="theme-color" style="background: linear-gradient(135deg, #93c5fd 0%, #c4b5fd 50%, #fca5a5 100%);"></span>
+                <span>Default</span>
+              </button>
+              <button data-theme="starry-night" class="theme-option">
+                <span class="theme-color" style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #fbbf24 100%);"></span>
+                <span>Starry Night</span>
+              </button>
+              <button data-theme="sunflowers" class="theme-option">
+                <span class="theme-color" style="background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #ea580c 100%);"></span>
+                <span>Sunflowers</span>
+              </button>
+              <button data-theme="wheat-fields" class="theme-option">
+                <span class="theme-color" style="background: linear-gradient(135deg, #d97706 0%, #84cc16 50%, #3b82f6 100%);"></span>
+                <span>Wheat Fields</span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
@@ -121,27 +138,51 @@ import '../styles/global.css';
 
 <script>
   const themeToggleBtn = document.getElementById('theme-toggle');
-  const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-  const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+  const themeMenu = document.getElementById('theme-menu');
+  const themeOptions = document.querySelectorAll('.theme-option');
 
-  if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    themeToggleLightIcon?.classList.remove('hidden');
-    document.documentElement.classList.add('dark');
-  } else {
-    themeToggleDarkIcon?.classList.remove('hidden');
-    document.documentElement.classList.remove('dark');
-  }
+  // Load saved theme or default
+  const savedTheme = localStorage.getItem('site-theme') || 'default';
+  document.documentElement.setAttribute('data-theme', savedTheme);
 
-  themeToggleBtn?.addEventListener('click', function() {
-    themeToggleDarkIcon?.classList.toggle('hidden');
-    themeToggleLightIcon?.classList.toggle('hidden');
-
-    if (document.documentElement.classList.contains('dark')) {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('color-theme', 'light');
-    } else {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('color-theme', 'dark');
+  // Update active state
+  themeOptions.forEach(option => {
+    if (option.getAttribute('data-theme') === savedTheme) {
+      option.classList.add('active');
     }
+  });
+
+  // Toggle menu
+  themeToggleBtn?.addEventListener('click', function(e) {
+    e.stopPropagation();
+    const isExpanded = themeMenu?.classList.toggle('hidden');
+    themeToggleBtn?.setAttribute('aria-expanded', !isExpanded ? 'true' : 'false');
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!themeMenu?.contains(e.target as Node) && e.target !== themeToggleBtn) {
+      themeMenu?.classList.add('hidden');
+      themeToggleBtn?.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Handle theme selection
+  themeOptions.forEach(option => {
+    option.addEventListener('click', function() {
+      const theme = this.getAttribute('data-theme');
+      if (theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('site-theme', theme);
+
+        // Update active state
+        themeOptions.forEach(opt => opt.classList.remove('active'));
+        this.classList.add('active');
+
+        // Close menu
+        themeMenu?.classList.add('hidden');
+        themeToggleBtn?.setAttribute('aria-expanded', 'false');
+      }
+    });
   });
 </script>
