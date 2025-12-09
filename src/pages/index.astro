@@ -231,7 +231,7 @@ import '../styles/global.css';
 
   // Close modal buttons
   document.querySelectorAll('.modal-close').forEach(btn => {
-    btn.addEventListener('click', function() {
+    btn.addEventListener('click', function(this: HTMLElement) {
       const modal = this.closest('.modal');
       if (modal) {
         closeModal(modal.id);
@@ -241,7 +241,7 @@ import '../styles/global.css';
 
   // Close modal on overlay click
   document.querySelectorAll('.modal-overlay').forEach(overlay => {
-    overlay.addEventListener('click', function() {
+    overlay.addEventListener('click', function(this: HTMLElement) {
       const modal = this.closest('.modal');
       if (modal) {
         closeModal(modal.id);
@@ -251,7 +251,7 @@ import '../styles/global.css';
 
   // Theme selection
   document.querySelectorAll('.theme-card').forEach(card => {
-    card.addEventListener('click', function() {
+    card.addEventListener('click', function(this: HTMLElement) {
       const theme = this.getAttribute('data-theme');
       if (theme) {
         document.documentElement.setAttribute('data-theme', theme);
