@@ -11,7 +11,7 @@ A clean, minimalist portfolio website built with Astro and custom CSS.
 - 🎯 SEO-friendly
 - 🖼️ Portfolio item components with flexible layouts
 - 📍 Sticky footer with social links
-- 🎭 Custom typography with Momo Trust Display and Anek Latin fonts
+- 🎭 Custom typography with Anek Latin font family
 - ✨ **No framework bloat** - Pure semantic HTML and ~260 lines of CSS
 
 ## Tech Stack
@@ -19,7 +19,7 @@ A clean, minimalist portfolio website built with Astro and custom CSS.
 - **Astro** - Modern static site generator
 - **Custom CSS** - Clean, maintainable styles (~260 lines total)
 - **TypeScript** - Type-safe development
-- **Google Fonts** - Momo Trust Display (headings) and Anek Latin (body text)
+- **Google Fonts** - Anek Latin (all typography)
 
 ## Getting Started
 
@@ -80,11 +80,11 @@ images={[{ src: '/assets/my-image.jpg', alt: 'My Image' }]}
 
 ### Change Colors
 
-Edit `tailwind.config.mjs` to customize the color scheme.
+Edit the watercolor background colors in `src/styles/global.css` (search for "Watercolor Background").
 
 ### Change Fonts
 
-Update the font imports in `src/styles/global.css` and font families in `tailwind.config.mjs`.
+Update the font import in `src/layouts/BaseLayout.astro` and font family in `src/styles/global.css`.
 
 ### Customize Social Links
 
