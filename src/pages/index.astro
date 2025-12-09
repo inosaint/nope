@@ -1,10 +1,32 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PortfolioItem from '../components/PortfolioItem.astro';
+import Modal from '../components/Modal.astro';
 import '../styles/global.css';
 ---
 
 <BaseLayout title="Your Name">
+  <!-- SVG Brushstroke Animations -->
+  <svg class="brushstrokes" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <defs>
+      <linearGradient id="stroke1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:currentColor;stop-opacity:0.15" />
+        <stop offset="100%" style="stop-color:currentColor;stop-opacity:0.05" />
+      </linearGradient>
+      <linearGradient id="stroke2" x1="100%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" style="stop-color:currentColor;stop-opacity:0.12" />
+        <stop offset="100%" style="stop-color:currentColor;stop-opacity:0.04" />
+      </linearGradient>
+    </defs>
+
+    <!-- Curved brushstrokes -->
+    <path class="brushstroke brush1" d="M 10,20 Q 30,10 50,25 T 90,30" stroke="url(#stroke1)" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+    <path class="brushstroke brush2" d="M 15,50 Q 40,45 60,55 T 95,50" stroke="url(#stroke2)" stroke-width="0.6" fill="none" stroke-linecap="round"/>
+    <path class="brushstroke brush3" d="M 5,70 Q 25,75 45,65 T 85,75" stroke="url(#stroke1)" stroke-width="0.7" fill="none" stroke-linecap="round"/>
+    <path class="brushstroke brush4" d="M 20,85 Q 50,80 70,90 T 95,85" stroke="url(#stroke2)" stroke-width="0.5" fill="none" stroke-linecap="round"/>
+    <path class="brushstroke brush5" d="M 90,15 Q 70,25 50,15 T 10,25" stroke="url(#stroke1)" stroke-width="0.6" fill="none" stroke-linecap="round"/>
+  </svg>
+
   <main>
     <div class="container">
       <div class="content-grid">
@@ -83,9 +105,8 @@ import '../styles/global.css';
           </section>
         </div>
 
-        <!-- Sidebar -->
+        <!-- Sidebar (empty for now) -->
         <aside class="sidebar">
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
         </aside>
       </div>
     </div>
@@ -100,89 +121,153 @@ import '../styles/global.css';
           <span>/</span>
           <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <span>/</span>
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
         </nav>
 
         <div class="footer-right">
-          <a href="/colophon">Colophon</a>
-          <div class="theme-selector">
-            <button id="theme-toggle" type="button" aria-label="Select theme" aria-expanded="false">
-              <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v11a2 2 0 104 0V4a2 2 0 00-2-2zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z" clip-rule="evenodd"></path>
-              </svg>
-            </button>
-            <div id="theme-menu" class="theme-menu hidden">
-              <button data-theme="default" class="theme-option active">
-                <span class="theme-color" style="background: linear-gradient(135deg, #93c5fd 0%, #c4b5fd 50%, #fca5a5 100%);"></span>
-                <span>Default</span>
-              </button>
-              <button data-theme="starry-night" class="theme-option">
-                <span class="theme-color" style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #fbbf24 100%);"></span>
-                <span>Starry Night</span>
-              </button>
-              <button data-theme="sunflowers" class="theme-option">
-                <span class="theme-color" style="background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #ea580c 100%);"></span>
-                <span>Sunflowers</span>
-              </button>
-              <button data-theme="wheat-fields" class="theme-option">
-                <span class="theme-color" style="background: linear-gradient(135deg, #d97706 0%, #84cc16 50%, #3b82f6 100%);"></span>
-                <span>Wheat Fields</span>
-              </button>
-            </div>
-          </div>
+          <button id="colophon-btn" type="button" class="footer-link">Colophon</button>
+          <button id="theme-toggle" type="button" aria-label="Select theme">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v11a2 2 0 104 0V4a2 2 0 00-2-2zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z" clip-rule="evenodd"></path>
+            </svg>
+          </button>
         </div>
       </div>
     </footer>
+
+    <!-- Theme Modal -->
+    <Modal id="theme-modal" title="Select Theme">
+      <div class="theme-grid">
+        <button data-theme="wheat-fields" class="theme-card active">
+          <div class="theme-preview">
+            <img src="/assets/wheat-fields.jpg" alt="Wheat Fields" />
+          </div>
+          <span class="theme-name">Wheat Fields</span>
+        </button>
+        <button data-theme="starry-night" class="theme-card">
+          <div class="theme-preview">
+            <img src="/assets/starry-night.jpg" alt="Starry Night" />
+          </div>
+          <span class="theme-name">Starry Night</span>
+        </button>
+        <button data-theme="sunflowers" class="theme-card">
+          <div class="theme-preview">
+            <img src="/assets/sunflowers.jpg" alt="Sunflowers" />
+          </div>
+          <span class="theme-name">Sunflowers</span>
+        </button>
+      </div>
+    </Modal>
+
+    <!-- Colophon Modal -->
+    <Modal id="colophon-modal" title="Colophon">
+      <div class="colophon-content">
+        <p>This portfolio site is built with modern web technologies, focusing on performance, accessibility, and clean design.</p>
+
+        <h4>Technology Stack</h4>
+        <ul class="tech-list">
+          <li><strong>Astro</strong> — Static site generator for lightning-fast performance</li>
+          <li><strong>TypeScript</strong> — Type-safe development</li>
+          <li><strong>Custom CSS</strong> — ~400 lines of clean, maintainable styles</li>
+          <li><strong>Google Fonts</strong> — Anek Latin typography</li>
+        </ul>
+
+        <h4>Design Inspiration</h4>
+        <p>The Van Gogh-inspired themes pay homage to three masterpieces:</p>
+        <ul class="tech-list">
+          <li><strong>Starry Night</strong> (1889) — Swirling blues and golden stars</li>
+          <li><strong>Sunflowers</strong> (1888) — Vibrant yellows and warm tones</li>
+          <li><strong>Wheat Fields</strong> (1890) — Ochre, green, and sky blue</li>
+        </ul>
+
+        <h4>Features</h4>
+        <ul class="tech-list">
+          <li>✨ No framework bloat — Pure semantic HTML</li>
+          <li>🎨 Animated watercolor backgrounds</li>
+          <li>📱 Fully responsive (360px to desktop)</li>
+          <li>♿ WCAG-compliant color contrasts</li>
+          <li>⚡ Optimized for performance</li>
+        </ul>
+      </div>
+    </Modal>
   </main>
 </BaseLayout>
 
 <script>
-  const themeToggleBtn = document.getElementById('theme-toggle');
-  const themeMenu = document.getElementById('theme-menu');
-  const themeOptions = document.querySelectorAll('.theme-option');
+  // Modal utilities
+  function openModal(modalId: string) {
+    const modal = document.getElementById(modalId);
+    modal?.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
 
-  // Load saved theme or default
-  const savedTheme = localStorage.getItem('site-theme') || 'default';
+  function closeModal(modalId: string) {
+    const modal = document.getElementById(modalId);
+    modal?.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  // Theme management
+  const savedTheme = localStorage.getItem('site-theme') || 'wheat-fields';
   document.documentElement.setAttribute('data-theme', savedTheme);
 
-  // Update active state
-  themeOptions.forEach(option => {
-    if (option.getAttribute('data-theme') === savedTheme) {
-      option.classList.add('active');
-    }
+  // Update active theme card
+  function updateActiveTheme(theme: string) {
+    document.querySelectorAll('.theme-card').forEach(card => {
+      card.classList.toggle('active', card.getAttribute('data-theme') === theme);
+    });
+  }
+  updateActiveTheme(savedTheme);
+
+  // Theme toggle button
+  document.getElementById('theme-toggle')?.addEventListener('click', () => {
+    openModal('theme-modal');
   });
 
-  // Toggle menu
-  themeToggleBtn?.addEventListener('click', function(e) {
-    e.stopPropagation();
-    const isExpanded = themeMenu?.classList.toggle('hidden');
-    themeToggleBtn?.setAttribute('aria-expanded', !isExpanded ? 'true' : 'false');
+  // Colophon button
+  document.getElementById('colophon-btn')?.addEventListener('click', () => {
+    openModal('colophon-modal');
   });
 
-  // Close menu when clicking outside
-  document.addEventListener('click', function(e) {
-    if (!themeMenu?.contains(e.target as Node) && e.target !== themeToggleBtn) {
-      themeMenu?.classList.add('hidden');
-      themeToggleBtn?.setAttribute('aria-expanded', 'false');
-    }
+  // Close modal buttons
+  document.querySelectorAll('.modal-close').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const modal = this.closest('.modal');
+      if (modal) {
+        closeModal(modal.id);
+      }
+    });
   });
 
-  // Handle theme selection
-  themeOptions.forEach(option => {
-    option.addEventListener('click', function() {
+  // Close modal on overlay click
+  document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', function() {
+      const modal = this.closest('.modal');
+      if (modal) {
+        closeModal(modal.id);
+      }
+    });
+  });
+
+  // Theme selection
+  document.querySelectorAll('.theme-card').forEach(card => {
+    card.addEventListener('click', function() {
       const theme = this.getAttribute('data-theme');
       if (theme) {
         document.documentElement.setAttribute('data-theme', theme);
         localStorage.setItem('site-theme', theme);
-
-        // Update active state
-        themeOptions.forEach(opt => opt.classList.remove('active'));
-        this.classList.add('active');
-
-        // Close menu
-        themeMenu?.classList.add('hidden');
-        themeToggleBtn?.setAttribute('aria-expanded', 'false');
+        updateActiveTheme(theme);
+        closeModal('theme-modal');
       }
     });
+  });
+
+  // ESC key to close modals
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal:not(.hidden)').forEach(modal => {
+        closeModal(modal.id);
+      });
+    }
   });
 </script>
