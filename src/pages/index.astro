@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PortfolioItem from '../components/PortfolioItem.astro';
+import VolunteerItem from '../components/VolunteerItem.astro';
 import Modal from '../components/Modal.astro';
 import '../styles/global.css';
 ---
@@ -47,62 +48,105 @@ import '../styles/global.css';
             </div>
           </section>
 
-          <!-- Portfolio -->
-          <section class="portfolio">
-            <PortfolioItem
-              date="December 2024"
-              title="Latest Project"
-              description="A recent project showcasing innovative design and user experience work. This project pushed boundaries and explored new possibilities in digital design."
-              link="https://example.com"
-              images={[{ src: 'https://placehold.co/800x600/e5e7eb/666666?text=Project+Image', alt: 'Latest Project' }]}
-            />
+          <!-- Tabs -->
+          <div class="tabs-container">
+            <div class="tabs" role="tablist">
+              <button class="tab active" role="tab" aria-selected="true" data-tab="portfolio">
+                Portfolio
+              </button>
+              <button class="tab" role="tab" aria-selected="false" data-tab="volunteer">
+                Volunteer
+              </button>
+            </div>
 
-            <PortfolioItem
-              date="November 2024"
-              title="Design Workshop"
-              description="Facilitated a workshop on creative problem-solving and design thinking. Helped teams unlock new ways of approaching complex challenges."
-              images={[
-                { src: 'https://placehold.co/800x600/e5e7eb/666666?text=Workshop+1', alt: 'Design Workshop' },
-                { src: 'https://placehold.co/800x600/e5e7eb/666666?text=Workshop+2', alt: 'Design Workshop' }
-              ]}
-              layout="double"
-            />
+            <!-- Portfolio Tab Content -->
+            <section id="portfolio-content" class="tab-content active" role="tabpanel">
+              <div class="portfolio">
+                <PortfolioItem
+                  date="December 2024"
+                  title="Latest Project"
+                  description="A recent project showcasing innovative design and user experience work. This project pushed boundaries and explored new possibilities in digital design."
+                  link="https://example.com"
+                  images={[{ src: 'https://placehold.co/800x600/e5e7eb/666666?text=Project+Image', alt: 'Latest Project' }]}
+                />
 
-            <PortfolioItem
-              date="October 2024"
-              title="Product Launch"
-              description="Led the design for a new product launch. Focused on creating an intuitive experience that delights users from their first interaction."
-              link="https://example.com"
-              images={[{ src: 'https://placehold.co/800x600/e5e7eb/666666?text=Product+Launch', alt: 'Product Launch' }]}
-            />
+                <PortfolioItem
+                  date="November 2024"
+                  title="Design Workshop"
+                  description="Facilitated a workshop on creative problem-solving and design thinking. Helped teams unlock new ways of approaching complex challenges."
+                  images={[
+                    { src: 'https://placehold.co/800x600/e5e7eb/666666?text=Workshop+1', alt: 'Design Workshop' },
+                    { src: 'https://placehold.co/800x600/e5e7eb/666666?text=Workshop+2', alt: 'Design Workshop' }
+                  ]}
+                  layout="double"
+                />
 
-            <PortfolioItem
-              date="September 2024"
-              title="Speaking Engagement"
-              description="Gave a talk about the intersection of creativity and technology. Shared insights on building products with joy and intention."
-              link="https://example.com"
-              images={[
-                { src: 'https://placehold.co/800x600/e5e7eb/666666?text=Speaking+1', alt: 'Speaking Engagement' },
-                { src: 'https://placehold.co/800x600/e5e7eb/666666?text=Speaking+2', alt: 'Speaking Engagement' }
-              ]}
-              layout="double"
-            />
+                <PortfolioItem
+                  date="October 2024"
+                  title="Product Launch"
+                  description="Led the design for a new product launch. Focused on creating an intuitive experience that delights users from their first interaction."
+                  link="https://example.com"
+                  images={[{ src: 'https://placehold.co/800x600/e5e7eb/666666?text=Product+Launch', alt: 'Product Launch' }]}
+                />
 
-            <PortfolioItem
-              date="August 2024"
-              title="Community Initiative"
-              description="Started a community initiative to bring together designers and creators. Building spaces for collaboration and shared learning."
-              images={[{ src: 'https://placehold.co/800x600/e5e7eb/666666?text=Community', alt: 'Community Initiative' }]}
-            />
+                <PortfolioItem
+                  date="September 2024"
+                  title="Speaking Engagement"
+                  description="Gave a talk about the intersection of creativity and technology. Shared insights on building products with joy and intention."
+                  link="https://example.com"
+                  images={[
+                    { src: 'https://placehold.co/800x600/e5e7eb/666666?text=Speaking+1', alt: 'Speaking Engagement' },
+                    { src: 'https://placehold.co/800x600/e5e7eb/666666?text=Speaking+2', alt: 'Speaking Engagement' }
+                  ]}
+                  layout="double"
+                />
 
-            <PortfolioItem
-              date="July 2024"
-              title="Design System"
-              description="Built a comprehensive design system to improve consistency and efficiency. Created reusable components that scale across platforms."
-              link="https://example.com"
-              images={[{ src: 'https://placehold.co/800x600/e5e7eb/666666?text=Design+System', alt: 'Design System' }]}
-            />
-          </section>
+                <PortfolioItem
+                  date="August 2024"
+                  title="Community Initiative"
+                  description="Started a community initiative to bring together designers and creators. Building spaces for collaboration and shared learning."
+                  images={[{ src: 'https://placehold.co/800x600/e5e7eb/666666?text=Community', alt: 'Community Initiative' }]}
+                />
+
+                <PortfolioItem
+                  date="July 2024"
+                  title="Design System"
+                  description="Built a comprehensive design system to improve consistency and efficiency. Created reusable components that scale across platforms."
+                  link="https://example.com"
+                  images={[{ src: 'https://placehold.co/800x600/e5e7eb/666666?text=Design+System', alt: 'Design System' }]}
+                />
+              </div>
+            </section>
+
+            <!-- Volunteer Tab Content -->
+            <section id="volunteer-content" class="tab-content" role="tabpanel" hidden>
+              <div class="volunteer">
+                <VolunteerItem
+                  title="Designer"
+                  organization="DataKind"
+                  dates="2015 - 2017"
+                  duration="2 years"
+                />
+
+                <VolunteerItem
+                  title="Cartographer"
+                  organization="Humanitarian OpenStreetMap Team"
+                  dates="Apr 2015 - Jun 2015"
+                  duration="3 months"
+                  category="Disaster and Humanitarian Relief"
+                />
+
+                <VolunteerItem
+                  title="Information Designer"
+                  organization="Compassion Unlimited Plus Action - India"
+                  dates="Oct 2020 - Mar 2021"
+                  duration="6 months"
+                  category="Animal Welfare"
+                  description="Design for CUPA annual report"
+                />
+              </div>
+            </section>
+          </div>
         </div>
 
         <!-- Sidebar (empty for now) -->
@@ -218,6 +262,33 @@ import '../styles/global.css';
     });
   }
   updateActiveTheme(savedTheme);
+
+  // Tab switching
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', function(this: HTMLElement) {
+      const targetTab = this.getAttribute('data-tab');
+      if (!targetTab) return;
+
+      // Update tab buttons
+      document.querySelectorAll('.tab').forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      this.classList.add('active');
+      this.setAttribute('aria-selected', 'true');
+
+      // Update tab content
+      document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.remove('active');
+        content.setAttribute('hidden', '');
+      });
+      const targetContent = document.getElementById(`${targetTab}-content`);
+      if (targetContent) {
+        targetContent.classList.add('active');
+        targetContent.removeAttribute('hidden');
+      }
+    });
+  });
 
   // Theme toggle button
   document.getElementById('theme-toggle')?.addEventListener('click', () => {
