@@ -6,28 +6,7 @@ import Modal from '../components/Modal.astro';
 import '../styles/global.css';
 ---
 
-<BaseLayout title="Your Name">
-  <!-- SVG Brushstroke Animations -->
-  <svg class="brushstrokes" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-    <defs>
-      <linearGradient id="stroke1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:currentColor;stop-opacity:0.15" />
-        <stop offset="100%" style="stop-color:currentColor;stop-opacity:0.05" />
-      </linearGradient>
-      <linearGradient id="stroke2" x1="100%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" style="stop-color:currentColor;stop-opacity:0.12" />
-        <stop offset="100%" style="stop-color:currentColor;stop-opacity:0.04" />
-      </linearGradient>
-    </defs>
-
-    <!-- Curved brushstrokes -->
-    <path class="brushstroke brush1" d="M 10,20 Q 30,10 50,25 T 90,30" stroke="url(#stroke1)" stroke-width="0.8" fill="none" stroke-linecap="round"/>
-    <path class="brushstroke brush2" d="M 15,50 Q 40,45 60,55 T 95,50" stroke="url(#stroke2)" stroke-width="0.6" fill="none" stroke-linecap="round"/>
-    <path class="brushstroke brush3" d="M 5,70 Q 25,75 45,65 T 85,75" stroke="url(#stroke1)" stroke-width="0.7" fill="none" stroke-linecap="round"/>
-    <path class="brushstroke brush4" d="M 20,85 Q 50,80 70,90 T 95,85" stroke="url(#stroke2)" stroke-width="0.5" fill="none" stroke-linecap="round"/>
-    <path class="brushstroke brush5" d="M 90,15 Q 70,25 50,15 T 10,25" stroke="url(#stroke1)" stroke-width="0.6" fill="none" stroke-linecap="round"/>
-  </svg>
-
+<BaseLayout title="Noopur">
   <main>
     <div class="container">
       <div class="content-grid">
@@ -35,10 +14,10 @@ import '../styles/global.css';
         <div class="main-content">
           <!-- Hero -->
           <section class="hero">
-            <h1>Your Name</h1>
+            <h1>Noopur</h1>
             <div class="bio">
               <p>
-               I enjoy working with people and building products. I am interested in understanding complex business problems and finding solutions. 
+               I enjoy working with people and building products. I am interested in understanding complex business problems and finding solutions.
               </p>
               <p>
                 In my work, I focus on bringing creativity and thoughtfulness to every project.
@@ -47,20 +26,10 @@ import '../styles/global.css';
             </div>
           </section>
 
-          <!-- Tabs -->
-          <div class="tabs-container">
-            <div class="tabs" role="tablist">
-              <button class="tab active" role="tab" aria-selected="true" data-tab="portfolio">
-                Portfolio
-              </button>
-              <button class="tab" role="tab" aria-selected="false" data-tab="volunteer">
-                Volunteer
-              </button>
-            </div>
-
-            <!-- Portfolio Tab Content -->
-            <section id="portfolio-content" class="tab-content active" role="tabpanel">
-              <div class="portfolio">
+          <!-- Work Section -->
+          <section class="work-section">
+            <h2>Work</h2>
+            <div class="portfolio">
                 <PortfolioItem
                   date="December 2024"
                   title="Latest Project"
@@ -115,11 +84,12 @@ import '../styles/global.css';
                   images={[{ src: 'https://placehold.co/800x600/e5e7eb/666666?text=Design+System', alt: 'Design System' }]}
                 />
               </div>
-            </section>
+          </section>
 
-            <!-- Volunteer Tab Content -->
-            <section id="volunteer-content" class="tab-content" role="tabpanel" hidden>
-              <div class="volunteer">
+          <!-- Volunteer Section -->
+          <section class="volunteer-section">
+            <h2>Volunteer</h2>
+            <div class="volunteer">
                 <VolunteerItem
                   title="Designer"
                   organization="DataKind"
@@ -143,9 +113,8 @@ import '../styles/global.css';
                   category="Animal Welfare"
                   description="Design for CUPA annual report"
                 />
-              </div>
-            </section>
-          </div>
+            </div>
+          </section>
         </div>
 
         <!-- Sidebar (empty for now) -->
@@ -181,23 +150,17 @@ import '../styles/global.css';
     <!-- Theme Modal -->
     <Modal id="theme-modal" title="Select Theme">
       <div class="theme-grid">
-        <button data-theme="wheat-fields" class="theme-card active">
+        <button data-theme="sunflowers" class="theme-card active">
           <div class="theme-preview">
-            <img src="/assets/wheat-fields.jpg" alt="Wheat Fields" />
+            <img src="/assets/sunflowers.jpg" alt="Sunflowers" />
           </div>
-          <span class="theme-name">Wheat Fields</span>
+          <span class="theme-name">Light</span>
         </button>
         <button data-theme="starry-night" class="theme-card">
           <div class="theme-preview">
             <img src="/assets/starry-night.jpg" alt="Starry Night" />
           </div>
-          <span class="theme-name">Starry Night</span>
-        </button>
-        <button data-theme="sunflowers" class="theme-card">
-          <div class="theme-preview">
-            <img src="/assets/sunflowers.jpg" alt="Sunflowers" />
-          </div>
-          <span class="theme-name">Sunflowers</span>
+          <span class="theme-name">Dark</span>
         </button>
       </div>
     </Modal>
@@ -216,11 +179,10 @@ import '../styles/global.css';
         </ul>
 
         <h4>Design Inspiration</h4>
-        <p>The Van Gogh-inspired themes pay homage to three masterpieces:</p>
+        <p>The Van Gogh-inspired themes pay homage to two masterpieces:</p>
         <ul class="tech-list">
-          <li><strong>Starry Night</strong> (1889) — Swirling blues and golden stars</li>
-          <li><strong>Sunflowers</strong> (1888) — Vibrant yellows and warm tones</li>
-          <li><strong>Wheat Fields</strong> (1890) — Ochre, green, and sky blue</li>
+          <li><strong>Sunflowers</strong> (1888) — Light theme with vibrant yellows and warm tones</li>
+          <li><strong>Starry Night</strong> (1889) — Dark theme with swirling blues and golden stars</li>
         </ul>
 
         <h4>Features</h4>
@@ -251,7 +213,7 @@ import '../styles/global.css';
   }
 
   // Theme management
-  const savedTheme = localStorage.getItem('site-theme') || 'wheat-fields';
+  const savedTheme = localStorage.getItem('site-theme') || 'sunflowers';
   document.documentElement.setAttribute('data-theme', savedTheme);
 
   // Update active theme card
@@ -261,33 +223,6 @@ import '../styles/global.css';
     });
   }
   updateActiveTheme(savedTheme);
-
-  // Tab switching
-  document.querySelectorAll('.tab').forEach(tab => {
-    tab.addEventListener('click', function(this: HTMLElement) {
-      const targetTab = this.getAttribute('data-tab');
-      if (!targetTab) return;
-
-      // Update tab buttons
-      document.querySelectorAll('.tab').forEach(t => {
-        t.classList.remove('active');
-        t.setAttribute('aria-selected', 'false');
-      });
-      this.classList.add('active');
-      this.setAttribute('aria-selected', 'true');
-
-      // Update tab content
-      document.querySelectorAll('.tab-content').forEach(content => {
-        content.classList.remove('active');
-        content.setAttribute('hidden', '');
-      });
-      const targetContent = document.getElementById(`${targetTab}-content`);
-      if (targetContent) {
-        targetContent.classList.add('active');
-        targetContent.removeAttribute('hidden');
-      }
-    });
-  });
 
   // Theme toggle button
   document.getElementById('theme-toggle')?.addEventListener('click', () => {

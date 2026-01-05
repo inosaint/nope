@@ -1,3 +1,11 @@
 import { defineConfig } from 'astro/config';
 
-export default defineConfig({});
+// https://astro.build/config
+export default defineConfig({
+  site: 'https://inosaint.github.io',
+  base: '/nope',
+  // Build configuration
+  build: {
+    assets: 'assets'
+  }
+});
