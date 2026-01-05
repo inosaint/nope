@@ -4,7 +4,7 @@ interface Props {
   title: string;
   description: string;
   link?: string;
-  images: { src: string; alt: string }[];
+  images?: { src: string; alt: string }[];
   layout?: 'single' | 'double';
 }
 
@@ -25,11 +25,13 @@ const { date, title, description, link, images, layout = 'single' } = Astro.prop
     <span> — {description}</span>
   </div>
 
-  <div class={`images ${layout}`}>
-    {images.map((image) => (
-      <img src={image.src} alt={image.alt} loading="lazy" width="800" height="600" />
-    ))}
-  </div>
+  {images && images.length > 0 && (
+    <div class={`images ${layout}`}>
+      {images.map((image) => (
+        <img src={image.src} alt={image.alt} loading="lazy" width="800" height="600" />
+      ))}
+    </div>
+  )}
 </article>
 
 <style>
