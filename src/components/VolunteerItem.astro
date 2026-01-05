@@ -1,0 +1,24 @@
+---
+interface Props {
+  title: string;
+  organization: string;
+  dates: string;
+  duration: string;
+  category?: string;
+  description?: string;
+}
+
+const { title, organization, dates, duration, category, description } = Astro.props;
+---
+
+<article class="volunteer-item">
+  <div class="volunteer-header">
+    <time class="volunteer-dates">{dates} · {duration}</time>
+  </div>
+  <div class="volunteer-content">
+    <h3 class="volunteer-title">{title}</h3>
+    <h4 class="volunteer-org">{organization}</h4>
+    {category && <p class="volunteer-category">{category}</p>}
+    {description && <p class="volunteer-description">{description}</p>}
+  </div>
+</article>
