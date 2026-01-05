@@ -23,7 +23,7 @@ const { date, title, description, link, images, layout = 'single', embed } = Ast
     ) : (
       <strong>{title}</strong>
     )}
-    <span> — {description}</span>
+    <span> — <Fragment set:html={description} /></span>
   </div>
 
   {images && images.length > 0 && (
