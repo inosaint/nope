@@ -137,11 +137,8 @@ import '../styles/global.css';
         </nav>
 
         <div class="footer-right">
-          <button id="colophon-btn" type="button" class="footer-link">Colophon</button>
           <button id="theme-toggle" type="button" aria-label="Select theme">
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v11a2 2 0 104 0V4a2 2 0 00-2-2zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z" clip-rule="evenodd"></path>
-            </svg>
+            <span class="material-symbols-outlined theme-icon">light_mode</span>
           </button>
         </div>
       </div>
@@ -154,13 +151,13 @@ import '../styles/global.css';
           <div class="theme-preview">
             <img src="/assets/sunflowers.jpg" alt="Sunflowers" />
           </div>
-          <span class="theme-name">Light</span>
+          <span class="theme-name">Sunflowers</span>
         </button>
         <button data-theme="starry-night" class="theme-card">
           <div class="theme-preview">
             <img src="/assets/starry-night.jpg" alt="Starry Night" />
           </div>
-          <span class="theme-name">Dark</span>
+          <span class="theme-name">Starry Night</span>
         </button>
       </div>
     </Modal>
@@ -216,22 +213,26 @@ import '../styles/global.css';
   const savedTheme = localStorage.getItem('site-theme') || 'sunflowers';
   document.documentElement.setAttribute('data-theme', savedTheme);
 
+  // Update theme icon based on current theme
+  function updateThemeIcon(theme: string) {
+    const icon = document.querySelector('#theme-toggle .theme-icon');
+    if (icon) {
+      icon.textContent = theme === 'sunflowers' ? 'light_mode' : 'dark_mode';
+    }
+  }
+
   // Update active theme card
   function updateActiveTheme(theme: string) {
     document.querySelectorAll('.theme-card').forEach(card => {
       card.classList.toggle('active', card.getAttribute('data-theme') === theme);
     });
+    updateThemeIcon(theme);
   }
   updateActiveTheme(savedTheme);
 
   // Theme toggle button
   document.getElementById('theme-toggle')?.addEventListener('click', () => {
     openModal('theme-modal');
-  });
-
-  // Colophon button
-  document.getElementById('colophon-btn')?.addEventListener('click', () => {
-    openModal('colophon-modal');
   });
 
   // Close modal buttons

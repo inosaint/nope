@@ -70,7 +70,6 @@ const { id, title } = Astro.props;
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem;
-    border-bottom: 1px solid #e5e7eb;
   }
 
   .modal-header h3 {
@@ -127,9 +126,6 @@ const { id, title } = Astro.props;
     color: #f3f4f6;
   }
 
-  html[data-theme="starry-night"] .modal-header {
-    border-bottom-color: #334155;
-  }
 
   html[data-theme="starry-night"] .modal-close:hover {
     background: rgba(59, 130, 246, 0.1);
@@ -140,16 +136,10 @@ const { id, title } = Astro.props;
     color: #292524;
   }
 
-  html[data-theme="sunflowers"] .modal-header {
-    border-bottom-color: #fbbf24;
-  }
 
   html[data-theme="wheat-fields"] .modal-content {
     background: #fef9e7;
     color: #1c1917;
   }
 
-  html[data-theme="wheat-fields"] .modal-header {
-    border-bottom-color: #d97706;
-  }
 </style>
