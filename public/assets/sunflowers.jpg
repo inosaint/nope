@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="sunflower-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fef3c7" />
+      <stop offset="50%" style="stop-color:#fbbf24" />
+      <stop offset="100%" style="stop-color:#f59e0b" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#sunflower-bg)"/>
+  <circle cx="250" cy="200" r="110" fill="#fbbf24" opacity="0.8"/>
+  <circle cx="550" cy="180" r="95" fill="#f59e0b" opacity="0.7"/>
+  <circle cx="400" cy="380" r="120" fill="#ea580c" opacity="0.6"/>
+  <circle cx="150" cy="450" r="80" fill="#d97706" opacity="0.5"/>
+  <circle cx="650" cy="400" r="100" fill="#fb923c" opacity="0.6"/>
+</svg>
