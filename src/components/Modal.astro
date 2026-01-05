@@ -94,6 +94,14 @@ const { id, title } = Astro.props;
     background: rgba(0, 0, 0, 0.05);
   }
 
+  html[data-theme="starry-night"] .modal-close {
+    color: #f3f4f6;
+  }
+
+  html[data-theme="sunflowers"] .modal-close {
+    color: #292524;
+  }
+
   .modal-body {
     padding: 1.5rem;
     overflow-y: auto;

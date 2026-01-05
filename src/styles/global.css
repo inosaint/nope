@@ -205,6 +205,14 @@ footer {
   font-size: 1.25rem;
 }
 
+html[data-theme="starry-night"] #theme-toggle .theme-icon {
+  color: #f3f4f6;
+}
+
+html[data-theme="sunflowers"] #theme-toggle .theme-icon {
+  color: #292524;
+}
+
 /* Theme Grid in Modal */
 .theme-grid {
   display: grid;
@@ -251,6 +259,34 @@ footer {
   display: block;
   font-size: 0.875rem;
   font-weight: 500;
+}
+
+html[data-theme="starry-night"] .theme-card {
+  border-color: #334155;
+  color: #f3f4f6;
+}
+
+html[data-theme="starry-night"] .theme-card:hover {
+  border-color: #3b82f6;
+}
+
+html[data-theme="starry-night"] .theme-card.active {
+  border-color: #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+}
+
+html[data-theme="sunflowers"] .theme-card {
+  border-color: #fbbf24;
+  color: #292524;
+}
+
+html[data-theme="sunflowers"] .theme-card:hover {
+  border-color: #f59e0b;
+}
+
+html[data-theme="sunflowers"] .theme-card.active {
+  border-color: #ea580c;
+  background: rgba(234, 88, 12, 0.1);
 }
 
 /* Colophon Content */
