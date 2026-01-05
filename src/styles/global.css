@@ -464,65 +464,7 @@ html[data-theme="sunflowers"] a {
 .volunteer {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
-}
-
-.volunteer-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.volunteer-item:last-child {
-  border-bottom: none;
-}
-
-.volunteer-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.volunteer-dates {
-  font-size: 0.9rem;
-  color: rgba(0, 0, 0, 0.6);
-  font-weight: 500;
-}
-
-.volunteer-content {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.volunteer-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #000;
-  margin: 0;
-}
-
-.volunteer-org {
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: rgba(0, 0, 0, 0.75);
-  margin: 0;
-}
-
-.volunteer-category {
-  font-size: 0.95rem;
-  color: rgba(0, 0, 0, 0.6);
-  font-style: italic;
-  margin: 0;
-}
-
-.volunteer-description {
-  font-size: 1rem;
-  color: rgba(0, 0, 0, 0.7);
-  line-height: 1.6;
-  margin: 0.25rem 0 0 0;
+  gap: 0;
 }
 
 /* Responsive - Tablet & Desktop */

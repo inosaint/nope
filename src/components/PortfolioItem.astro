@@ -53,6 +53,24 @@ const { date, title, description, link, images, layout = 'single' } = Astro.prop
     font-weight: 500;
   }
 
+  /* Dark theme support */
+  html[data-theme="starry-night"] time {
+    color: #9ca3af;
+  }
+
+  html[data-theme="starry-night"] img {
+    outline-color: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Sunflowers theme */
+  html[data-theme="sunflowers"] time {
+    color: #78716c;
+  }
+
+  html[data-theme="sunflowers"] img {
+    outline-color: rgba(41, 37, 36, 0.2);
+  }
+
   .images {
     display: grid;
     gap: 1.5rem;
