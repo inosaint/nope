@@ -11,14 +11,67 @@ interface Props {
 const { title, organization, dates, duration, category, description } = Astro.props;
 ---
 
-<article class="volunteer-item">
-  <div class="volunteer-header">
-    <time class="volunteer-dates">{dates} · {duration}</time>
-  </div>
+<article>
+  <time>{dates} · {duration}</time>
+
   <div class="volunteer-content">
-    <h3 class="volunteer-title">{title}</h3>
-    <h4 class="volunteer-org">{organization}</h4>
-    {category && <p class="volunteer-category">{category}</p>}
-    {description && <p class="volunteer-description">{description}</p>}
+    <strong>{title}</strong> — {organization}{category && <span class="category"> · {category}</span>}
+    {description && <span class="description"> — {description}</span>}
   </div>
 </article>
+
+<style>
+  article {
+    margin-bottom: 3rem;
+  }
+
+  time {
+    display: block;
+    color: #6b7280;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+
+  .volunteer-content {
+    max-width: 42rem;
+  }
+
+  strong {
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: rgba(0, 0, 0, 0.2);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+  }
+
+  .category {
+    color: #6b7280;
+    font-size: 0.9rem;
+  }
+
+  .description {
+    display: block;
+    margin-top: 0.5rem;
+    opacity: 0.8;
+  }
+
+  /* Dark theme support */
+  html[data-theme="starry-night"] time,
+  html[data-theme="starry-night"] .category {
+    color: #9ca3af;
+  }
+
+  html[data-theme="starry-night"] strong {
+    text-decoration-color: rgba(255, 255, 255, 0.3);
+  }
+
+  /* Sunflowers theme */
+  html[data-theme="sunflowers"] time,
+  html[data-theme="sunflowers"] .category {
+    color: #78716c;
+  }
+
+  html[data-theme="sunflowers"] strong {
+    text-decoration-color: rgba(41, 37, 36, 0.3);
+  }
+</style>

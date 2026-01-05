@@ -201,9 +201,16 @@ footer {
   background: rgba(0, 0, 0, 0.05);
 }
 
-#theme-toggle svg {
-  width: 1.25rem;
-  height: 1.25rem;
+#theme-toggle .theme-icon {
+  font-size: 1.25rem;
+}
+
+html[data-theme="starry-night"] #theme-toggle .theme-icon {
+  color: #f3f4f6;
+}
+
+html[data-theme="sunflowers"] #theme-toggle .theme-icon {
+  color: #292524;
 }
 
 /* Theme Grid in Modal */
@@ -252,6 +259,34 @@ footer {
   display: block;
   font-size: 0.875rem;
   font-weight: 500;
+}
+
+html[data-theme="starry-night"] .theme-card {
+  border-color: #334155;
+  color: #f3f4f6;
+}
+
+html[data-theme="starry-night"] .theme-card:hover {
+  border-color: #3b82f6;
+}
+
+html[data-theme="starry-night"] .theme-card.active {
+  border-color: #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+}
+
+html[data-theme="sunflowers"] .theme-card {
+  border-color: #fbbf24;
+  color: #292524;
+}
+
+html[data-theme="sunflowers"] .theme-card:hover {
+  border-color: #f59e0b;
+}
+
+html[data-theme="sunflowers"] .theme-card.active {
+  border-color: #ea580c;
+  background: rgba(234, 88, 12, 0.1);
 }
 
 /* Colophon Content */
@@ -465,65 +500,7 @@ html[data-theme="sunflowers"] a {
 .volunteer {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
-}
-
-.volunteer-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.volunteer-item:last-child {
-  border-bottom: none;
-}
-
-.volunteer-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.volunteer-dates {
-  font-size: 0.9rem;
-  color: rgba(0, 0, 0, 0.6);
-  font-weight: 500;
-}
-
-.volunteer-content {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.volunteer-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #000;
-  margin: 0;
-}
-
-.volunteer-org {
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: rgba(0, 0, 0, 0.75);
-  margin: 0;
-}
-
-.volunteer-category {
-  font-size: 0.95rem;
-  color: rgba(0, 0, 0, 0.6);
-  font-style: italic;
-  margin: 0;
-}
-
-.volunteer-description {
-  font-size: 1rem;
-  color: rgba(0, 0, 0, 0.7);
-  line-height: 1.6;
-  margin: 0.25rem 0 0 0;
+  gap: 0;
 }
 
 /* Responsive - Tablet & Desktop */
@@ -585,8 +562,7 @@ html[data-theme="sunflowers"] a {
     font-size: 0.75rem;
   }
 
-  #theme-toggle svg {
-    width: 1rem;
-    height: 1rem;
+  #theme-toggle .theme-icon {
+    font-size: 1rem;
   }
 }

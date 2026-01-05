@@ -4,11 +4,12 @@ interface Props {
   title: string;
   description: string;
   link?: string;
-  images: { src: string; alt: string }[];
+  images?: { src: string; alt: string }[];
   layout?: 'single' | 'double';
+  embed?: string;
 }
 
-const { date, title, description, link, images, layout = 'single' } = Astro.props;
+const { date, title, description, link, images, layout = 'single', embed } = Astro.props;
 ---
 
 <article>
@@ -22,14 +23,22 @@ const { date, title, description, link, images, layout = 'single' } = Astro.prop
     ) : (
       <strong>{title}</strong>
     )}
-    <span> — {description}</span>
+    <span> — <Fragment set:html={description} /></span>
   </div>
 
-  <div class={`images ${layout}`}>
-    {images.map((image) => (
-      <img src={image.src} alt={image.alt} loading="lazy" width="800" height="600" />
-    ))}
-  </div>
+  {images && images.length > 0 && (
+    <div class={`images ${layout}`}>
+      {images.map((image) => (
+        <img src={image.src} alt={image.alt} loading="lazy" width="800" height="600" />
+      ))}
+    </div>
+  )}
+
+  {embed && (
+    <div class="video-embed">
+      <Fragment set:html={embed} />
+    </div>
+  )}
 </article>
 
 <style>
@@ -53,6 +62,24 @@ const { date, title, description, link, images, layout = 'single' } = Astro.prop
     font-weight: 500;
   }
 
+  /* Dark theme support */
+  html[data-theme="starry-night"] time {
+    color: #9ca3af;
+  }
+
+  html[data-theme="starry-night"] img {
+    outline-color: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Sunflowers theme */
+  html[data-theme="sunflowers"] time {
+    color: #78716c;
+  }
+
+  html[data-theme="sunflowers"] img {
+    outline-color: rgba(41, 37, 36, 0.2);
+  }
+
   .images {
     display: grid;
     gap: 1.5rem;
@@ -73,5 +100,33 @@ const { date, title, description, link, images, layout = 'single' } = Astro.prop
     height: auto;
     outline: 1px solid rgba(0, 0, 0, 0.1);
     outline-offset: -1px;
+  }
+
+  .video-embed {
+    position: relative;
+    width: 100%;
+    max-width: 42rem;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+  }
+
+  .video-embed :global(iframe) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: 1px solid rgba(0, 0, 0, 0.1);
+    outline-offset: -1px;
+  }
+
+  html[data-theme="starry-night"] .video-embed :global(iframe) {
+    outline-color: rgba(255, 255, 255, 0.2);
+  }
+
+  html[data-theme="sunflowers"] .video-embed :global(iframe) {
+    outline-color: rgba(41, 37, 36, 0.2);
   }
 </style>
