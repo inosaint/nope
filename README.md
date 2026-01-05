@@ -1,18 +1,18 @@
-# Portfolio Website
+# Noopur's Portfolio Website
 
-A clean, minimalist portfolio website built with Astro and custom CSS.
+A clean, minimalist portfolio website built with Astro and custom CSS, featuring Van Gogh-inspired themes.
 
 ## Features
 
-- 🎨 Clean, minimalist design with vibrant watercolor background
-- 🌓 Manual dark mode toggle
+- 🎨 Van Gogh-inspired themes (Sunflowers/Light and Starry Night/Dark)
+- 🖼️ Animated watercolor backgrounds
 - 📱 Fully responsive (360px mobile to desktop)
 - ⚡ Lightning-fast performance with Astro
 - 🎯 SEO-friendly
-- 🖼️ Portfolio item components with flexible layouts
+- 💼 Work and Volunteer sections
 - 📍 Sticky footer with social links
 - 🎭 Custom typography with Anek Latin font family
-- ✨ **No framework bloat** - Pure semantic HTML and ~260 lines of CSS
+- ✨ **No framework bloat** - Pure semantic HTML and custom CSS
 
 ## Tech Stack
 
@@ -42,6 +42,30 @@ npm run build
 # Preview production build
 npm run preview
 ```
+
+## Deployment
+
+This site is configured to deploy automatically to GitHub Pages when you push to the `main` branch.
+
+### GitHub Pages Setup
+
+1. Go to your repository Settings > Pages
+2. Under "Build and deployment", select "GitHub Actions" as the source
+3. Push to the `main` branch to trigger the deployment
+
+The site will be available at: `https://inosaint.github.io/nope/`
+
+### Manual Deployment
+
+You can also deploy to other platforms:
+
+**Netlify/Vercel:**
+- Connect your repository
+- Build command: `npm run build`
+- Publish directory: `dist`
+
+**Custom Domain:**
+Update the `site` value in `astro.config.mjs` to your custom domain.
 
 ## Customization
 
