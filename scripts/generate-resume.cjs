@@ -24,8 +24,10 @@ function sectionHeader(text) {
 // Helper function for work items (more breathing room)
 function workItem(date, title, description) {
   doc.fontSize(10).font('Helvetica').fillColor(gray).text(date);
+  doc.moveDown(0.15);
   doc.fontSize(11).font('Helvetica-Bold').fillColor(black).text(title);
   if (description) {
+    doc.moveDown(0.15);
     doc.fontSize(10).font('Helvetica').fillColor(gray).text(description, { lineGap: 3 });
   }
   doc.moveDown(1.0);
