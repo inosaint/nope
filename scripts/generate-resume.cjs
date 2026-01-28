@@ -41,6 +41,13 @@ doc.fontSize(10).font('Helvetica').fillColor(gray)
   .text('noopur190@gmail.com  |  ', { continued: true })
   .text('noopur.me', { link: 'https://noopur.me', underline: false });
 
+// === ABOUT (no heading) ===
+doc.moveDown(1.0);
+doc.fontSize(10).font('Helvetica').fillColor(black).text(
+  'I have always been attracted to complexity. I like seeing patterns in things and making sense of things. I like challenging myself, so I can grow. I spend time reading, meeting people and cooking for leisure. I enjoy working with hand and play around with linocut, watercolors, embroidery etc.',
+  { lineGap: 3 }
+);
+
 // === WORK EXPERIENCE ===
 sectionHeader('Work Experience');
 
