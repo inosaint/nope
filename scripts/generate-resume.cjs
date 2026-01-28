@@ -7,7 +7,7 @@ const doc = new PDFDocument({
   margins: { top: 60, bottom: 60, left: 60, right: 60 }
 });
 
-const output = fs.createWriteStream(path.join(__dirname, '../public/resume.pdf'));
+const output = fs.createWriteStream(path.join(__dirname, '../public/noopurs_resume.pdf'));
 doc.pipe(output);
 
 // Colors
@@ -89,5 +89,5 @@ workItem('2015', 'Cartographer — Humanitarian OpenStreetMap Team', 'Volunteere
 doc.end();
 
 output.on('finish', () => {
-  console.log('Resume PDF generated at public/resume.pdf');
+  console.log('Resume PDF generated at public/noopurs_resume.pdf');
 });
