@@ -51,7 +51,7 @@ sectionHeader('Work Experience');
 
 workItem('2025 - Present', 'Project Tech4Dev', 'Currently working on building tools for the non-profit sector');
 
-workItem('2023 - Present', 'Design Ops & Business Development — 3 Sided Coin', 'Working on introducing processes and strategy for this boutique design agency');
+workItem('2023 - 2024', 'Design Ops & Business Development — 3 Sided Coin', 'Working on introducing processes and strategy for this boutique design agency');
 
 workItem('2022 - Present', 'Visiting Faculty & Guide — National Institute of Design, Bangalore', 'Teaching Service Design for an 8 week module to 3rd semester Information Design students. Also serving as in-campus guide for Service Design Module and System Design course');
 
