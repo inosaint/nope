@@ -245,12 +245,22 @@ import '../styles/global.css';
     }
   }
 
+  // Update favicon based on current theme
+  function updateFavicon(theme: string) {
+    const favicon = document.getElementById('favicon') as HTMLLinkElement;
+    if (favicon) {
+      const emoji = theme === 'sunflowers' ? '🌻' : '🌃';
+      favicon.href = `data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>${emoji}</text></svg>`;
+    }
+  }
+
   // Update active theme card
   function updateActiveTheme(theme: string) {
     document.querySelectorAll('.theme-card').forEach(card => {
       card.classList.toggle('active', card.getAttribute('data-theme') === theme);
     });
     updateThemeIcon(theme);
+    updateFavicon(theme);
   }
   updateActiveTheme(savedTheme);
 
